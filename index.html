@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hamara wala</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            font-family: sans-serif;
+        }
+        #main_container{
+            background-color: white;
+            padding:30px;
+            width: 350px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            align-content:flex-start;
+        }
+        #heading_of_login_page{
+            text-align: center;
+        }
+        #signup_box{
+            display: none;
+            width: 100%;
+        }
+        #login_box{
+            width: 100%;
+        }
+        #login_button_leading_to_login_page,#signup_button_leading_to_signup_page{
+            border:none;
+            color:#667eea;
+            font-weight: bold;
+            background:none;
+            font-size: 16px;
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+        #username_id_login,#password_id_login,#text_signup,#email_signup,#password_signup,#confirm_password_signup{
+            width: 88%;
+            padding:12px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-transform: capitalize;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+        }
+        #just_login_button{
+            width: 100%;
+            padding:12px;
+            color: white;
+            border-radius: 8px;
+            background-color: #667eea;
+            transition: background-color 2s linear;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+        }
+        #just_login_button:hover{
+            background-color: #5567d6;
+        }
+        #just_signup_button{
+            width: 100%;
+            padding:12px;
+            color: white;
+            background-color:#667eea;
+            border-radius: 8px;
+            transition: background-color 2s linear;
+            cursor: pointer;
+            font-size: 16px;
+            border:none;
+        }
+        #just_signup_button:hover{
+            background-color: #5567d6;
+        }
+        #either_login_or_signup {
+           display:flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 70px;
+            margin-bottom: 20px;
+        }
+
+        #incase_any_field_missing {
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #721c24;
+            background-color: #f8d7da;
+            margin-top:15px;
+            padding:12px;
+            font-size: 14px;
+            display:none;
+        }
+    </style>
+
+
+
+</head>
+<body>
+<div id="main_container">
+    <div id="either_login_or_signup">
+        <input type="button" value="login" id="login_button_leading_to_login_page" >
+        <input type="button" value="signup" id="signup_button_leading_to_signup_page">
+    </div>
+    <div id="login_box">
+        <h3 id="heading_of_login_page">
+            Login
+        </h3>
+        <input type="text" id="username_id_login" placeholder="username">
+        <input type="password" id="password_id_login" placeholder="password">
+        <input type="button" value="Login" id="just_login_button">
+    </div>
+    <div id="signup_box">
+        <h3>
+            Signup
+        </h3>
+        <input type="text" placeholder="Username" id="text_signup">
+        <input type="email" placeholder="Email" id="email_signup">
+        <input type="password" placeholder="password" id="password_signup">
+        <input type="password" placeholder="confirm_password" id="confirm_password_signup">
+        <input type="button" value="Signup" id="just_signup_button">
+    </div>
+    <div id="incase_any_field_missing">
+
+    </div>
+</div>
+
+<script>
+
+    let access_login_button_leading_to_login_page=document.getElementById("login_button_leading_to_login_page");
+    let username_written_by_person=document.getElementById("username_id_login");
+    let password_written_by_person=document.getElementById("password_id_login");
+    let access_just_login_button=document.getElementById("just_login_button");
+    let access_incase_any_field_missing=document.getElementById("incase_any_field_missing");
+
+
+    let access_signup_button_leading_to_signup_page=document.getElementById("signup_button_leading_to_signup_page");
+    let username_written_signup=document.getElementById("text_signup");
+    let email_written_signup=document.getElementById("email_signup");
+    let password_written_signup=document.getElementById("password_signup");
+    let confirm_password_signup=document.getElementById("confirm_password_signup");
+    let access_just_signup_button=document.getElementById("just_signup_button");
+
+    let access_login_page_div=document.getElementById("login_box");
+    let access_signup_page_div=document.getElementById("signup_box");
+
+
+
+    access_signup_button_leading_to_signup_page.addEventListener("click", async function(){
+        access_incase_any_field_missing.innerHTML="";
+        access_signup_page_div.style.display="flex";
+        access_signup_page_div.style.flexDirection="column";
+        access_signup_page_div.style.alignItems="center";
+        access_signup_page_div.style.justifyContent="flex-start";
+        access_signup_page_div.style.alignContent="flex-start";
+
+
+
+
+        access_login_page_div.style.display="none";
+    });
+
+    access_login_button_leading_to_login_page.addEventListener("click",async function(){
+        access_incase_any_field_missing.innerHTML="";
+        access_login_page_div.style.display="flex";
+        access_login_page_div.style.flexDirection="column";
+        access_login_page_div.style.alignItems="center";
+        access_login_page_div.style.justifyContent="flex-start";
+        access_login_page_div.style.alignContent="flex-start";
+        access_signup_page_div.style.display="none";
+    });
+
+
+    access_just_login_button.addEventListener("click",async function(){
+
+        access_incase_any_field_missing.innerHTML="";
+       let username_entered_by_person= username_written_by_person.value;
+       let password_entered_by_person= password_written_by_person.value;
+       if(username_entered_by_person==="" && password_entered_by_person!==""){
+           let notification_to_user="no username entered";
+           access_incase_any_field_missing.innerHTML=notification_to_user;
+           username_written_by_person.style.border="solid 1px red";
+
+        }
+       else if (username_entered_by_person==="" && password_entered_by_person===""){
+           access_incase_any_field_missing.innerHTML="no username and  password entered";
+           username_written_by_person.style.border="solid 1px red";
+           password_written_by_person.style.border="solid 1px red";
+       }
+       else if (username_entered_by_person!=="" && password_entered_by_person===""){
+           access_incase_any_field_missing.innerHTML="no password entered";
+           password_written_by_person.style.border="solid 1px red";
+       }
+       else{
+           let dict_to_be_sent_to_backend={"username":username_entered_by_person,"password":password_entered_by_person}
+           console.log(dict_to_be_sent_to_backend);
+           let url=" http://127.0.0.1:8000/request_from_front_end_login_page";
+           let additional_data={
+               "method":"POST",
+               "headers":{"Content-Type":"application/json"},
+               "body":JSON.stringify(dict_to_be_sent_to_backend)
+           }
+           let response=await fetch(url,additional_data);
+           let json_data=await response.json();
+
+           if("error" in json_data){
+               access_incase_any_field_missing.innerHTML=json_data["error"];
+           }
+           else if (json_data.message==="you have logged in successfully"){
+               access_incase_any_field_missing.innerHTML=json_data["message"];
+               access_incase_any_field_missing.style.backgroundColor="#d4edda";
+               access_incase_any_field_missing.style.color="#155724";
+               access_incase_any_field_missing.style.display="block";
+           }
+           else if (json_data.message==="invalid credentials"){
+               access_incase_any_field_missing.innerHTML=json_data["message"];
+               access_incase_any_field_missing.style.backgroundColor="#f8d7da";
+               access_incase_any_field_missing.style.color="#721c24";
+               access_incase_any_field_missing.style.display="block";
+           }
+       }
+    });
+
+    access_just_signup_button.addEventListener("click",async function(){
+        access_incase_any_field_missing.innerHTML="";
+        access_incase_any_field_missing.style.color="";
+        access_incase_any_field_missing.style.backgroundColor="";
+        let username_signup=username_written_signup.value;
+        let regex_email_check=/^[^\s@]+[@][^\s@]+[.][^\s@]+$/;
+        let email_signup=email_written_signup.value;
+
+        let password_signup=password_written_signup.value;
+        let confirm_password_signup_by_user=confirm_password_signup.value;
+
+        if(username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="no username entered";
+            username_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup==="" && email_signup==="" && (password_signup!=="" && confirm_password_signup_by_user===""  && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="no username,no email entered. no confirmed password entered";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length<8)){
+            access_incase_any_field_missing.innerHTML="no username entered, password must be of at least 8 characters";
+            username_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="no username entered, password and confirm password dont match";
+            username_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && password_signup==="" && confirm_password_signup_by_user===""){
+            access_incase_any_field_missing.innerHTML="no username entered, no password and no confirm password entered";
+            username_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup==="" && confirm_password_signup_by_user===""){
+            access_incase_any_field_missing.innerHTML="no username entered.Email format is wrong. no password and no confirm password entered";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup==="" && confirm_password_signup_by_user!=="")){
+            access_incase_any_field_missing.innerHTML="no username entered, You have not written any password";
+            username_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user==="" && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="no username entered, and email format is also wrong. You have not written any confirmed password";
+            username_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup==="" && confirm_password_signup_by_user!=="" ){
+            access_incase_any_field_missing.innerHTML="no username entered, and email format is also wrong. You have not written any confirmed password";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user===""  && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="no username entered, no confirm password written";
+            username_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length<8)){
+            access_incase_any_field_missing.innerHTML="no username entered, password and confirm password dont match. Password must be of at least 8 characters";
+            username_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 5px red";
+        }
+        else if(username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="no username entered and wrong email format entered";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length<8)){
+            access_incase_any_field_missing.innerHTML="no username entered and wrong email format entered. Password must be of atleast 8 characters";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="no username entered and wrong email format entered. Password and confirm password dont match";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length<8)){
+            access_incase_any_field_missing.innerHTML="no username entered and wrong email format entered. Password and confirm password dont match. Password must be of at least 8 characters";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 5px red";
+        }
+        else if(username_signup==="" && email_signup==="" && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="no username and email entered";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup==="" && email_signup==="" && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length<8)){
+            access_incase_any_field_missing.innerHTML="no username and email entered. Password must be of atleast 8 characters";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup==="" && email_signup==="" && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="no username and email entered. Password and confirm password dont match";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup==="" && email_signup==="" && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length<8)){
+            access_incase_any_field_missing.innerHTML="no username and email entered. Password and confirm password dont match. Password must be of at least 8 characters";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 5px red";
+        }
+        else if(username_signup==="" && email_signup==="" && password_signup==="" && confirm_password_signup_by_user!==""){
+            access_incase_any_field_missing.innerHTML="no username,email and password entered";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup==="" && email_signup==="" && password_signup==="" && confirm_password_signup_by_user===""){
+            access_incase_any_field_missing.innerHTML="no username,email, password and confirmed password entered";
+            username_written_signup.style.border="solid 1px red";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && email_signup===""  && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="No email written";
+            email_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && email_signup===""  && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length<8)){
+            access_incase_any_field_missing.innerHTML="password must be of at least 8 characters. No email written";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && email_signup===""  && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="password and confirm password dont match. No email written";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && email_signup==="" && password_signup==="" && confirm_password_signup_by_user!==""){
+            access_incase_any_field_missing.innerHTML="no email and password entered";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && email_signup==="" && password_signup==="" && confirm_password_signup_by_user===""){
+            access_incase_any_field_missing.innerHTML="no email, password and confirmed password entered";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && password_signup==="" && confirm_password_signup_by_user!==""){
+            access_incase_any_field_missing.innerHTML="no password entered";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup==="" && confirm_password_signup_by_user===""){
+            access_incase_any_field_missing.innerHTML="email format wrong and no password and confirmed password entered";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup==="" && confirm_password_signup_by_user!==""){
+            access_incase_any_field_missing.innerHTML="email format wrong and no password entered";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user==="" && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="no confirmed password entered";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && password_signup==="" && confirm_password_signup_by_user==="" ){
+            access_incase_any_field_missing.innerHTML="no password and no confirmed password entered";
+            password_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user==="" && password_signup.length<8)){
+            access_incase_any_field_missing.innerHTML="no confirmed password entered. Password must be of at least 8 characters";
+            password_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup!=="" && confirm_password_signup_by_user==="" && password_signup.length>=8){
+            access_incase_any_field_missing.innerHTML="wrong email format no confirmed password entered";
+            email_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup!=="" && confirm_password_signup_by_user==="" && password_signup.length<8){
+            access_incase_any_field_missing.innerHTML="wrong email format no confirmed password entered. Password must be of at least 8 characters";
+            email_written_signup.style.border="solid 1px red";
+            password_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="wrong email format";
+            email_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length>=8)){
+            access_incase_any_field_missing.innerHTML="password and confirm password dont match";
+            password_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length<8)){
+            access_incase_any_field_missing.innerHTML="password must be of at least 8 characters";
+            password_written_signup.style.border="solid 1px red";
+        }
+        else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length<8)){
+            access_incase_any_field_missing.innerHTML="password must be of at least 8 characters. Password and confirm password dont match";
+            password_written_signup.style.border="solid 1px red";
+            confirm_password_signup.style.border="solid 1px red";
+        }
+        else{
+            access_incase_any_field_missing.innerHTML="";
+            access_incase_any_field_missing.style.backgroundColor="";
+            access_incase_any_field_missing.style.color="";
+            let dict_to_be_sent_to_backend={"username":username_signup,"email":email_signup,"password":password_signup,"confirm_password":confirm_password_signup_by_user};
+            let url="http://127.0.0.1:8000/request_from_front_end_signup_page";
+            let additional_data={
+                "method":"POST",
+                "headers":{"Content-Type":"application/json"},
+                "body":JSON.stringify(dict_to_be_sent_to_backend)
+            }
+            let response=await fetch(url,additional_data);
+            let json_data=await response.json();
+            if("error" in json_data){
+                access_incase_any_field_missing.innerHTML=json_data["error"];
+            }
+            else if(json_data.message==="sign up was successful"){
+                access_incase_any_field_missing.innerHTML=json_data["message"];
+                access_incase_any_field_missing.style.backgroundColor="#d4edda";
+                access_incase_any_field_missing.style.color="#155724";
+                access_incase_any_field_missing.style.display="block";
+
+            }
+        }
+
+    });
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
