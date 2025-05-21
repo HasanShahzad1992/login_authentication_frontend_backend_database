@@ -247,32 +247,38 @@
 
         if(username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="no username entered";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
         }
         else if(username_signup==="" && email_signup==="" && (password_signup!=="" && confirm_password_signup_by_user===""  && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="no username,no email entered. no confirmed password entered";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length<8)){
             access_incase_any_field_missing.innerHTML="no username entered, password must be of at least 8 characters";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
         }
         else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="no username entered, password and confirm password dont match";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
         }
         else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && password_signup==="" && confirm_password_signup_by_user===""){
             access_incase_any_field_missing.innerHTML="no username entered, no password and no confirm password entered";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup==="" && confirm_password_signup_by_user===""){
             access_incase_any_field_missing.innerHTML="no username entered.Email format is wrong. no password and no confirm password entered";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
@@ -280,84 +286,99 @@
         }
         else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup==="" && confirm_password_signup_by_user!=="")){
             access_incase_any_field_missing.innerHTML="no username entered, You have not written any password";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
         }
         else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user==="" && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="no username entered, and email format is also wrong. You have not written any confirmed password";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup==="" && confirm_password_signup_by_user!=="" ){
             access_incase_any_field_missing.innerHTML="no username entered, and email format is also wrong. You have not written any confirmed password";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user===""  && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="no username entered, no confirm password written";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if (username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length<8)){
             access_incase_any_field_missing.innerHTML="no username entered, password and confirm password dont match. Password must be of at least 8 characters";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 5px red";
         }
         else if(username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="no username entered and wrong email format entered";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
         }
         else if(username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length<8)){
             access_incase_any_field_missing.innerHTML="no username entered and wrong email format entered. Password must be of atleast 8 characters";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
         }
         else if(username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="no username entered and wrong email format entered. Password and confirm password dont match";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
         }
         else if(username_signup==="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length<8)){
             access_incase_any_field_missing.innerHTML="no username entered and wrong email format entered. Password and confirm password dont match. Password must be of at least 8 characters";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 5px red";
         }
         else if(username_signup==="" && email_signup==="" && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="no username and email entered";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
         }
         else if(username_signup==="" && email_signup==="" && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length<8)){
             access_incase_any_field_missing.innerHTML="no username and email entered. Password must be of atleast 8 characters";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
         }
         else if(username_signup==="" && email_signup==="" && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="no username and email entered. Password and confirm password dont match";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
         }
         else if(username_signup==="" && email_signup==="" && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length<8)){
             access_incase_any_field_missing.innerHTML="no username and email entered. Password and confirm password dont match. Password must be of at least 8 characters";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 5px red";
         }
         else if(username_signup==="" && email_signup==="" && password_signup==="" && confirm_password_signup_by_user!==""){
             access_incase_any_field_missing.innerHTML="no username,email and password entered";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
         }
         else if(username_signup==="" && email_signup==="" && password_signup==="" && confirm_password_signup_by_user===""){
             access_incase_any_field_missing.innerHTML="no username,email, password and confirmed password entered";
+            access_incase_any_field_missing.style.display="block";
             username_written_signup.style.border="solid 1px red";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
@@ -365,65 +386,78 @@
         }
         else if(username_signup!=="" && email_signup===""  && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="No email written";
+            access_incase_any_field_missing.style.display="block";
             email_written_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && email_signup===""  && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length<8)){
             access_incase_any_field_missing.innerHTML="password must be of at least 8 characters. No email written";
+            access_incase_any_field_missing.style.display="block";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && email_signup===""  && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="password and confirm password dont match. No email written";
+            access_incase_any_field_missing.style.display="block";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && email_signup==="" && password_signup==="" && confirm_password_signup_by_user!==""){
             access_incase_any_field_missing.innerHTML="no email and password entered";
+            access_incase_any_field_missing.style.display="block";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && email_signup==="" && password_signup==="" && confirm_password_signup_by_user===""){
             access_incase_any_field_missing.innerHTML="no email, password and confirmed password entered";
+            access_incase_any_field_missing.style.display="block";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && password_signup==="" && confirm_password_signup_by_user!==""){
             access_incase_any_field_missing.innerHTML="no password entered";
+            access_incase_any_field_missing.style.display="block";
             password_written_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup==="" && confirm_password_signup_by_user===""){
             access_incase_any_field_missing.innerHTML="email format wrong and no password and confirmed password entered";
+            access_incase_any_field_missing.style.display="block";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup==="" && confirm_password_signup_by_user!==""){
             access_incase_any_field_missing.innerHTML="email format wrong and no password entered";
+            access_incase_any_field_missing.style.display="block";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user==="" && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="no confirmed password entered";
+            access_incase_any_field_missing.style.display="block";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && password_signup==="" && confirm_password_signup_by_user==="" ){
             access_incase_any_field_missing.innerHTML="no password and no confirmed password entered";
+            access_incase_any_field_missing.style.display="block";
             password_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user==="" && password_signup.length<8)){
             access_incase_any_field_missing.innerHTML="no confirmed password entered. Password must be of at least 8 characters";
+            access_incase_any_field_missing.style.display="block";
             password_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup!=="" && confirm_password_signup_by_user==="" && password_signup.length>=8){
             access_incase_any_field_missing.innerHTML="wrong email format no confirmed password entered";
+            access_incase_any_field_missing.style.display="block";
             email_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && password_signup!=="" && confirm_password_signup_by_user==="" && password_signup.length<8){
+            access_incase_any_field_missing.style.display="block";
             access_incase_any_field_missing.innerHTML="wrong email format no confirmed password entered. Password must be of at least 8 characters";
             email_written_signup.style.border="solid 1px red";
             password_written_signup.style.border="solid 1px red";
@@ -431,19 +465,23 @@
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===false) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="wrong email format";
+            access_incase_any_field_missing.style.display="block";
             email_written_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length>=8)){
             access_incase_any_field_missing.innerHTML="password and confirm password dont match";
+            access_incase_any_field_missing.style.display="block";
             password_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup===confirm_password_signup_by_user && password_signup.length<8)){
             access_incase_any_field_missing.innerHTML="password must be of at least 8 characters";
+            access_incase_any_field_missing.style.display="block";
             password_written_signup.style.border="solid 1px red";
         }
         else if(username_signup!=="" && (email_signup!=="" && regex_email_check.test(email_signup)===true) && (password_signup!=="" && confirm_password_signup_by_user!=="" && password_signup!==confirm_password_signup_by_user && password_signup.length<8)){
             access_incase_any_field_missing.innerHTML="password must be of at least 8 characters. Password and confirm password dont match";
+            access_incase_any_field_missing.style.display="block";
             password_written_signup.style.border="solid 1px red";
             confirm_password_signup.style.border="solid 1px red";
         }
